@@ -22,7 +22,7 @@ const app = express();
 
 let originalUrl =
   process.env.NODE_ENV === "development"
-    ? "http://localhost:3002"
+    ? "http://localhost:3000"
     : "DEPLOY URL";
 
 app.use(cors({ origin: originalUrl, credentials: true }));
