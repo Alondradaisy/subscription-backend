@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 const createError = require("http-errors");
 const express = require("express");
 const cookieParser = require("cookie-parser");
@@ -7,18 +5,9 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-mongoose
-  .connect(process.env.MONGO_DB, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("MONGO_DB is live"))
-  .catch((e) => console.log(e));
+const app = express();
 
 const usersRouter = require("./routes/userRouter");
-
-const app = express();
 
 let originalUrl =
   process.env.NODE_ENV === "development"
